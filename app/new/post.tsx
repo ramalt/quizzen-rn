@@ -24,9 +24,7 @@ import {
   Divider,
   HStack,
   ScrollView,
-  Input,
-  InputField,
-  InputSlot,
+  Button,
 } from "@gluestack-ui/themed";
 import { FontAwesome5 } from "@expo/vector-icons";
 
@@ -88,9 +86,6 @@ const NewPostPage = () => {
 
             <Textarea
               size="md"
-              isReadOnly={false}
-              isInvalid={false}
-              isDisabled={false}
               isFocused={true}
               w="$80"
               style={{ borderWidth: 0 }}
@@ -289,6 +284,17 @@ const NewPostPage = () => {
               </Box>
             </VStack>
           </Box>
+
+          <Button
+            variant="outline"
+            borderColor="black"
+            borderWidth={3}
+            onPress={() => {
+              router.back();
+            }}
+          >
+            <FontAwesome5 name="paper-plane" size={25} />
+          </Button>
         </Center>
       </Box>
     </View>
