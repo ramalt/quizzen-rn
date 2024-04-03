@@ -24,7 +24,7 @@ const Feed = () => {
         placement="bottom right"
         isHovered={false}
         onPress={() => {
-          // router.push("/new");
+          router.push("/new/post");
         }}
       >
         <FontAwesome5 name="plus"></FontAwesome5>
