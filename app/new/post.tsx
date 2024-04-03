@@ -1,5 +1,5 @@
-import { View, Text, Pressable } from "react-native";
-import React from "react";
+import { View, Text, Pressable, TextInput } from "react-native";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "expo-router";
 import {
   Box,
@@ -26,11 +26,43 @@ import {
   ScrollView,
   Input,
   InputField,
+  InputSlot,
 } from "@gluestack-ui/themed";
 import { FontAwesome5 } from "@expo/vector-icons";
 
+const Dersler = [
+  { label: "Backend Development", value: "backend" },
+  { label: "Frontend Development", value: "frontend" },
+  { label: "Database Management", value: "database" },
+];
+
+const Konular = [
+  { label: "Backend Development", value: "backend" },
+  { label: "Frontend Development", value: "frontend" },
+  { label: "Database Management", value: "database" },
+];
+
 const NewPostPage = () => {
   const router = useRouter();
+
+  const [searchTextDers, setSearchTextDers] = useState("");
+  const [searchTextKonu, setSearchTextKonu] = useState("");
+  const [filteredDersler, setFilteredDersler] = useState([]);
+  const [filteredKonular, setFilteredKonular] = useState([]);
+
+  useEffect(() => {
+    const filteredDers = Dersler.filter((ders) =>
+      new RegExp(searchTextDers, "i").test(ders.label)
+    );
+
+    const filteredKonu = Konular.filter((konu) =>
+      new RegExp(searchTextKonu, "i").test(konu.label)
+    );
+
+    setFilteredDersler(filteredDers);
+    setFilteredKonular(filteredKonu);
+  }, [searchTextDers, searchTextKonu]);
+
   return (
     <View
       style={{ flex: 1, justifyContent: "flex-start", alignItems: "center" }}
@@ -114,25 +146,34 @@ const NewPostPage = () => {
                       <SelectDragIndicator />
                     </SelectDragIndicatorWrapper>
 
-                    <Input
-                      variant="outline"
-                      size="lg"
-                      isDisabled={false}
-                      isInvalid={false}
-                      isReadOnly={false}
-                    >
-                      <InputField placeholder="Enter Text here" />
-                    </Input>
+                    <TextInput
+                      onChangeText={setSearchTextDers}
+                      value={searchTextDers}
+                      placeholder="ara"
+                      style={{
+                        height: 40,
+                        margin: 12,
+                        width: 300,
+                        padding: 2,
+                        borderBottomColor: "gray",
+                        borderBottomWidth: 1,
+                      }}
+                    />
 
                     <Divider my="$1" />
 
-                    <SelectItem label="Backend Development" value="backend" />
-                    <SelectItem label="Backend Development" value="backend" />
+                    {filteredDersler.map((ders) => (
+                      <SelectItem
+                        key={ders.value}
+                        label={ders.label}
+                        value={ders.value}
+                      />
+                    ))}
                   </SelectContent>
                 </SelectPortal>
               </Select>
 
-              <Select isDisabled={true}>
+              <Select isDisabled={false}>
                 <SelectTrigger variant="outline" size="md">
                   <SelectInput placeholder="Ders Seçiniz" />
                   {/* <SelectIcon mr="$3">
@@ -147,20 +188,29 @@ const NewPostPage = () => {
                       <SelectDragIndicator />
                     </SelectDragIndicatorWrapper>
 
-                    <Input
-                      variant="outline"
-                      size="lg"
-                      isDisabled={false}
-                      isInvalid={false}
-                      isReadOnly={false}
-                    >
-                      <InputField placeholder="Enter Text here" />
-                    </Input>
+                    <TextInput
+                      onChangeText={setSearchTextKonu}
+                      value={searchTextKonu}
+                      placeholder="ara"
+                      style={{
+                        height: 40,
+                        margin: 12,
+                        width: 300,
+                        padding: 2,
+                        borderBottomColor: "gray",
+                        borderBottomWidth: 1,
+                      }}
+                    />
 
                     <Divider my="$1" />
 
-                    <SelectItem label="Backend Development" value="backend" />
-                    <SelectItem label="Backend Development" value="backend" />
+                    {filteredKonular.map((konu) => (
+                      <SelectItem
+                        key={konu.value}
+                        label={konu.label}
+                        value={konu.value}
+                      />
+                    ))}
                   </SelectContent>
                 </SelectPortal>
               </Select>
@@ -171,7 +221,7 @@ const NewPostPage = () => {
                 <HStack space="md">
                   <Pressable
                     onPress={() => {
-                    //   router.push("/camera");
+                      //   router.push("/camera");
                     }}
                   >
                     <Box

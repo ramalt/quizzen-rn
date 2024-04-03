@@ -1,6 +1,5 @@
 import { View, ScrollView } from "react-native";
 import React from "react";
-import { useRouter } from "expo-router";
 import { Fab, VStack } from "@gluestack-ui/themed";
 import { FontAwesome5 } from "@expo/vector-icons";
 import SinglePostCard from "@/components/postCard";
