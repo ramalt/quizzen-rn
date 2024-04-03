@@ -4,9 +4,9 @@ import { useRouter } from "expo-router";
 import { Fab, VStack } from "@gluestack-ui/themed";
 import { FontAwesome5 } from "@expo/vector-icons";
 import SinglePostCard from "@/components/postCard";
+import CommentCard from "@/components/commentCard";
 
-const Feed = () => {
-  const router = useRouter();
+const PostDetailPage = () => {
   return (
     <View
       style={{ flex: 1, justifyContent: "flex-start", alignItems: "center" }}
@@ -14,8 +14,12 @@ const Feed = () => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <VStack space="md" reversed={false} flex={1}>
           <SinglePostCard />
-          <SinglePostCard />
-          <SinglePostCard />
+
+          <CommentCard />
+          <CommentCard />
+          <CommentCard />
+          <CommentCard />
+          <CommentCard />
         </VStack>
       </ScrollView>
 
@@ -33,4 +37,4 @@ const Feed = () => {
   );
 };
 
-export default Feed;
+export default PostDetailPage;

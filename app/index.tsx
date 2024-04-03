@@ -1,7 +1,6 @@
 import { View, Text } from "react-native";
 import React from "react";
 import LoginPage from "./login";
-import Feed from "./(tabs)/feed";
 
 const index = () => {
   return (
