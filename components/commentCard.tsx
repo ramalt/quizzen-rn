@@ -1,4 +1,4 @@
-import { Pressable, View } from "react-native";
+import { Pressable, View, Image } from "react-native";
 import React from "react";
 import {
   Box,
@@ -10,6 +10,7 @@ import {
   Text,
   Divider,
   Button,
+
 } from "@gluestack-ui/themed";
 import { FontAwesome5 } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
@@ -55,8 +56,34 @@ const CommentCard = () => {
 
               <Box w="$20">
                 <VStack space="xs">
-                  <Box w="$12" h="$12" borderRadius={5} bgColor="aqua"></Box>
-                  <Box w="$12" h="$12" borderRadius={5} bgColor="aqua"></Box>
+                  <Box w="$12" h="$12" borderRadius={5} bgColor="aqua" style={{ overflow: 'hidden' }}>
+                    <Image
+                      source={{
+                        uri: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                      }}
+                      alt=""
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        aspectRatio: 1
+                      }}
+                      resizeMode="cover"
+                    />
+                  </Box>
+                  <Box w="$12" h="$12" borderRadius={5} bgColor="aqua" style={{ overflow: 'hidden' }}>
+                    <Image
+                      source={{
+                        uri: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
+                      }}
+                      alt=""
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        aspectRatio: 1
+                      }}
+                      resizeMode="cover"
+                    />
+                  </Box>
                 </VStack>
               </Box>
             </HStack>

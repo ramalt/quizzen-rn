@@ -4,7 +4,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 
 const TabsLayout = () => {
   return (
-    <Tabs>
+    <Tabs >
       <Tabs.Screen
         name="feed"
         options={{
