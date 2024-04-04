@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "quizzen-rn",
-    "slug": "quizzen-rn",
-    "version": "1.0.0",
+    "name": "Quizzen Demo",
+    "slug": "quizzen-demo",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
@@ -22,7 +22,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.macvercy.quizzendemo"
     },
     "web": {
       "bundler": "metro",
@@ -34,6 +35,14 @@
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "3ebbaa4d-0677-49be-92a5-709b02ffac9c"
+      }
     }
   }
 }
